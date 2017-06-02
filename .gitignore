@@ -1,0 +1,8 @@
+*.class
+
+*.projects
+
+*.prefs
+
+*.project
+target/*
