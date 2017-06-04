@@ -10,6 +10,9 @@ public class Education {
 		super();
 		this.school = school;
 	}
+	
+	public Education() {
+	}
 
 	private String school;
 

@@ -94,10 +94,26 @@ public class PersonController {
 		return "Hello Jersey";
 	}
 	
+	@POST
+	@Path("/education")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response education(Education education) {
+		System.out.println("Inside education " + education.toString());
+		Education e = new Education("HAL");
+		e.setSchool(e.getSchool() + "  " + " wow its working now.");
+		JSONObject j = new JSONObject(e);
+		System.out.println("Inside education" + j.toString());
+		return Response
+				   .status(200)
+				   .entity(j.toString()).build();
+	}
+	
 	@GET
 	@Path("/printPerson")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response printPerson() {
+		System.out.println("Inside print person");
 		Person p = new Person();
 		p.setName(" Sarvesh kaushik. You are awesome husband");
 		p.setAge("11");
