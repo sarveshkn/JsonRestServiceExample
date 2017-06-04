@@ -63,7 +63,8 @@ public class PersonController {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getEducation(Education edu) {
-		System.out.println("Server" +edu.toString());
+		System.out.println("Server from angular is" +edu.toString());
+		edu.setSchool(edu.getSchool() + " Added from server side");
 		JSONObject j = new JSONObject(edu);
 		return Response
 				   .status(200)
@@ -91,6 +92,23 @@ public class PersonController {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String sayPlainTextHello() {
 		return "Hello Jersey";
+	}
+	
+	@GET
+	@Path("/printPerson")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response printPerson() {
+		Person p = new Person();
+		p.setName(" Sarvesh kaushik. You are awesome husband");
+		p.setAge("11");
+		Address address = new Address();
+		address.setPostalCode("226016");
+		address.setStreet("Indira");
+		p.setAddress(address);
+		JSONObject j = new JSONObject(p);
+		return Response
+				   .status(200)
+				   .entity(j.toString()).build();
 	}
 
 }

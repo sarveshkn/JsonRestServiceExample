@@ -8,7 +8,7 @@ public class Education {
 	@JsonCreator
 	public Education(@JsonProperty("school") String school) {
 		super();
-		this.school = school + " Hello";
+		this.school = school;
 	}
 
 	private String school;
